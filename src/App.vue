@@ -1,28 +1,39 @@
+
+<!-- App.vue -->
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div style="width: 250px">
+      <TitleMenu :isActive="activeId === 100" @active="activeId = 100">
+        <template v-slot:title>
+          <!-- 给title具名插槽传递内容 -->
+          发现频道
+        </template>
+        <template v-slot:icon>
+          <!-- 给icon具名插槽传递内容 -->
+          >
+        </template>
+      </TitleMenu>
+      <ChannelList :activeId="activeId" @active="activeId = $event" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TitleMenu from "./components/TitleMenu.vue";
+import ChannelList from "./components/ChannelList.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    TitleMenu,
+    ChannelList,
+  },
+  data() {
+    return {
+      select: false,
+      activeId: 100, //默认选择的热门
+    };
+  },
+  methods: {},
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
