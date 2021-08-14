@@ -13,7 +13,7 @@
           >
         </template>
       </TitleMenu>
-      <ChannelList :activeId="activeId" @active="activeId = $event" />
+      <ChannelList :columns="2" :activeId="activeId" @active="activeId = $event" />
     </div>
   </div>
 </template>
