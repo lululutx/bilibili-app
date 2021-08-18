@@ -4,7 +4,7 @@
     <div
       class="channel-list"
       :style="{
-        height: `${height}px`
+        height: `${height}px`,
       }"
     >
       <div
@@ -23,11 +23,15 @@
       </div>
     </div>
     <div class="collapse" @click="isExspan = !isExspan">
-      <span>{{ isExspan ? "折叠" : "展开" }}</span>
+      <span>{{ isExspan ? "收起" : "展开" }}</span>
+      <!--
       <i
         class="iconfont"
         :class="isExspan ? 'icon-shangjiantou' : 'icon-jiantou9'"
       ></i>
+      -->
+
+      <Icon :type="isExspan ? 'arrowDown' : 'arrowUp'" extraClass="icon1" />
     </div>
   </div>
 </template>
@@ -35,9 +39,11 @@
 <script>
 import Channel from "./Channel.vue";
 import channelServ from "../services/channel";
+import Icon from "./Icon.vue";
 export default {
   components: {
     Channel,
+    Icon,
   },
   props: {
     activeId: {
@@ -74,10 +80,9 @@ export default {
 </script>
 
 <style scoped>
-@import "//at.alicdn.com/t/font_2745060_s3fdbkatij.css";
 .channel-list {
   overflow: hidden;
-  transition: .3s;
+  transition: 0.3s;
 }
 .item {
   float: left;
@@ -90,8 +95,9 @@ export default {
   color: #999;
   font-size: 14px;
   cursor: pointer; /*鼠标移上去会有小手*/
+  border-bottom: 1px solid #e7e7e7;
 }
-.iconfont {
+.icon1 {
   font-size: 12px;
   margin-left: 5px;
 }

@@ -1,0 +1,32 @@
+<template>
+  <div class="channel-search">
+    <Search
+      @search="handleSearch"
+      placeHolder="搜索频道"
+    />
+  </div>
+</template>
+
+<script>
+import Search from "./Search";
+export default {
+  components: {
+    Search,
+  },
+  methods: {
+    handleSearch(e) {
+      console.info("shuchu", e);
+    },
+  },
+};
+</script>
+
+<style>
+.channel-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 18px;
+  height: 34px;
+  margin: 18px 0;
+}
+</style>
